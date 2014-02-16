@@ -6,7 +6,7 @@
 # catalog-version 1.0
 Name:		texlive-ltximg
 Version:	1.0
-Release:	1
+Release:	2
 Summary:	Split LaTeX files to sanitise a conversion process
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/ltximg
@@ -17,7 +17,7 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Requires:	texlive-ltximg.bin
+Provides:	texlive-ltximg.bin = %{EVRD}
 
 %description
 The package provides a Perl script that extracts all TikZ and
@@ -35,6 +35,7 @@ preview bundle.
 
 #-----------------------------------------------------------------------
 %files
+%{_bindir}/ltximg
 %{_texmfdistdir}/scripts/ltximg/ltximg.pl
 %doc %{_texmfdistdir}/doc/support/ltximg/README
 %doc %{_texmfdistdir}/doc/support/ltximg/ltximg-doc.pdf
@@ -48,5 +49,9 @@ preview bundle.
 %build
 
 %install
+mkdir -p %{buildroot}%{_bindir}
+pushd %{buildroot}%{_bindir}
+    ln -sf %{_texmfdistdir}/scripts/ltximg/ltximg.pl ltximg
+popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
