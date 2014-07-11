@@ -6,7 +6,7 @@
 # catalog-version 1.0
 Name:		texlive-ltximg
 Version:	1.0
-Release:	3
+Release:	4
 Summary:	Split LaTeX files to sanitise a conversion process
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/ltximg
