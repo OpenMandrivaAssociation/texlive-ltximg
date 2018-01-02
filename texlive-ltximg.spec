@@ -1,12 +1,6 @@
-# revision 32346
-# category Package
-# catalog-ctan /support/ltximg
-# catalog-date 2013-12-05 10:21:29 +0100
-# catalog-license gpl2
-# catalog-version 1.0
 Name:		texlive-ltximg
-Version:	1.0
-Release:	6
+Version:	1.2
+Release:	1
 Summary:	Split LaTeX files to sanitise a conversion process
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/ltximg
@@ -36,11 +30,8 @@ preview bundle.
 #-----------------------------------------------------------------------
 %files
 %{_bindir}/ltximg
-%{_texmfdistdir}/scripts/ltximg/ltximg.pl
-%doc %{_texmfdistdir}/doc/support/ltximg/README
-%doc %{_texmfdistdir}/doc/support/ltximg/ltximg-doc.pdf
-%doc %{_texmfdistdir}/doc/support/ltximg/ltximg-doc.tex
-%doc %{_texmfdistdir}/doc/support/ltximg/test.tex
+%{_texmfdistdir}/scripts/ltximg
+%doc %{_texmfdistdir}/doc/support/ltximg
 
 #-----------------------------------------------------------------------
 %prep
