@@ -1,5 +1,5 @@
 Name:		texlive-ltximg
-Version:	1.2
+Version:	1.5
 Release:	1
 Summary:	Split LaTeX files to sanitise a conversion process
 Group:		Publishing
