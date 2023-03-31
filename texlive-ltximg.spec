@@ -1,6 +1,6 @@
 Name:		texlive-ltximg
 Version:	59335
-Release:	1
+Release:	2
 Summary:	Split LaTeX files to sanitise a conversion process
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/ltximg
