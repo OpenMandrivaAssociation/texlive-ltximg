@@ -3,7 +3,7 @@ Version:	59335
 Release:	2
 Summary:	Split LaTeX files to sanitise a conversion process
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/support/ltximg
+URL:		https://www.ctan.org/tex-archive/support/ltximg
 License:	GPL2
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ltximg.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ltximg.doc.r%{version}.tar.xz
