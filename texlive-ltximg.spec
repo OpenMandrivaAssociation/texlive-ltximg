@@ -1,49 +1,26 @@
-Name:		texlive-ltximg
-Version:	59335
-Release:	2
-Summary:	Split LaTeX files to sanitise a conversion process
+%global tl_name ltximg
+%global tl_revision 59335
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.1
+Release:	%{tl_revision}.1
+Summary:	Extract LaTeX environments into separate image files
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/support/ltximg
-License:	GPL2
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ltximg.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ltximg.doc.r%{version}.tar.xz
+License:	gpl3+
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ltximg.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ltximg.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
-Provides:	texlive-ltximg.bin = %{EVRD}
+BuildSystem:	texlive
+Requires:	texlive(ltximg.bin)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides a Perl script that extracts all TikZ and
-PStricks environments for separate processing to produce images
-(in eps, pdf, png or jpg format) for use by a converter or the
-preview bundle.
+ltximg is a Perl script that automates the process of extracting and
+converting environments provided by TikZ, PStricks and other packages
+from input file to image formats and standalone files using ghostscript
+and poppler-utils. It generates a file with only extracted environments
+and another with all extracted environments converted to
+\includegraphics.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_bindir}/ltximg
-%{_texmfdistdir}/scripts/ltximg
-%doc %{_texmfdistdir}/doc/man/man1/*
-%doc %{_texmfdistdir}/doc/support/ltximg
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_bindir}
-pushd %{buildroot}%{_bindir}
-ln -sf %{_texmfdistdir}/scripts/ltximg/ltximg.pl ltximg
-popd
-mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf-dist %{buildroot}%{_datadir}
