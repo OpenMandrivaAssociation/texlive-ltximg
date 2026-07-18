@@ -1,5 +1,6 @@
 %global tl_name ltximg
 %global tl_revision 59335
+%global tl_bin_links ltximg:%{_texmfdistdir}/scripts/ltximg/ltximg.pl
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -15,6 +16,8 @@ BuildArch:	noarch
 BuildSystem:	texlive
 Requires:	texlive(ltximg.bin)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 ltximg is a Perl script that automates the process of extracting and
